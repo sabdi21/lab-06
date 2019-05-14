@@ -1,6 +1,6 @@
 # lab-06
 
-# Project Name
+# City Explorer 
 
 **Author**: Shukri Abdi
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
@@ -24,25 +24,13 @@
 -->
 
 
-#### Feater 1 #####
-umber and name of feature: ________________________________
-
+#### Feature 1 #####
+number and name of feature: We worked on all the features listed on trello
 Estimate of time needed to complete: _____
 
-Start time: _____
+Start time: _9:00____
 
-Finish time: _____
+Finish time: _1:00____
 
-Actual time needed to complete: _____
+Actual time needed to complete: _our broswer isn't showoing the data yet____
 
-
-#### Feater 2 #####
-umber and name of feature: ________________________________
-
-Estimate of time needed to complete: _____
-
-Start time: _____
-
-Finish time: _____
-
-Actual time needed to complete: _____

@@ -15,7 +15,7 @@ app.use(cors());
 // API Routes
 app.get('/location', (request,response) => {
   try {
-    //location?data=seattle
+
     const locationData = searchToLatLong(request.query.data);
     response.send(locationData);
   }
@@ -37,12 +37,13 @@ app.get('/weather', (request, response) => {
 })
 
 // Helper Functions
-function seattleLocation {}
-//=================
+//=================add handleError function============ 
+
 function searchToLatLong(query) {
   const geoData = require('./data/geo.json');
 
-  const location = new Location(query, geoData) {
+  const location = new Location(query, geoData)
+  
   // const location = {
   //   search_query: query,
   //   formatted_query: geoData.results[0].formatted_address,
@@ -52,30 +53,24 @@ function searchToLatLong(query) {
   return location;
 }
 
-
-
-
+// creating search function for weather
 function searchWeather(query) {
   const weatherData = require('./data/darksky.json');
   const weather = {
     search_query: query,
-   forcast: weatherData.summary,
-   time: new Date(weatherData.time *1000).toDateString(),
+    forcast: weatherData.summary,
+    time: new Date(weatherData.time *1000).toDateString(),
   };
   return weather;
 }
 
 // Refactor the searchToLatLong function to replace the object literal with a call to this constructor function:
-
 function Location(query, geoData) {
   this.search_query = query;
   this.formatted_query = geoData.result[0].formatted_address;
   this.latitude = geoData.results[0].geometry.location.lat;
   this.longitude = geoData.results[0].geometry.location.lng;
 }
-
-
-
 
 // Make sure the server is listening for requests
 app.listen(PORT, () => console.log(`App is listening on ${PORT}`) );
