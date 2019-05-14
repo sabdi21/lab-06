@@ -25,6 +25,17 @@ app.get('/location', (request,response) => {
   }
 });
 
+app.get('/weather', (request, response) => {
+  try {
+    const weatherData = searchWeather(request.query.data);
+    response.send(weatherData);
+  }
+  catch(error) {
+    console.error(error);
+    response.status(500).send('Status: 500. So sorry, something went wrong.');
+  }
+})
+
 // Helper Functions
 function seattleLocation {}
 //=================
@@ -41,6 +52,19 @@ function searchToLatLong(query) {
   return location;
 }
 
+
+
+
+function searchWeather(query) {
+  const weatherData = require('./data/darksky.json');
+  const weather = {
+    search_query: query,
+   forcast: weatherData.summary,
+   time: new Date(weatherData.time *1000).toDateString(),
+  };
+  return weather;
+}
+
 // Refactor the searchToLatLong function to replace the object literal with a call to this constructor function:
 
 function Location(query, geoData) {
@@ -49,6 +73,9 @@ function Location(query, geoData) {
   this.latitude = geoData.results[0].geometry.location.lat;
   this.longitude = geoData.results[0].geometry.location.lng;
 }
+
+
+
 
 // Make sure the server is listening for requests
 app.listen(PORT, () => console.log(`App is listening on ${PORT}`) );
